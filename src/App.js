@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import InvitationCard from './Component/InvitationCard';
+import  {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+   <>
+     <div 
+      style={{
+        display: "flex",
+        justifyContent: "center",  // horizontal center
+        alignItems: "center",      // vertical center
+        flexDirection: "column",   // stack items vertically
+        minHeight: "100vh",        // full page height
+        textAlign: "center"        // center text inside
+      }}
+    >
+   
+  <Router>
+      <div>
+        <nav>
+          {/* Shareable link */}
+          <Link to="/invitation" className="text-blue-500"></Link>
+        </nav>
+        
+        <Routes>
+          <Route path="/invitation" element={<InvitationCard />} />
+        </Routes>
+      </div>
+    </Router>
+
+  <InvitationCard/>
+  </div>
+   </>
   );
 }
 
